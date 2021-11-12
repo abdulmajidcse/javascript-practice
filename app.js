@@ -20,10 +20,15 @@ function storeTodo() {
     let todoTitle = prompt("Todo Title");
     let todoNote = prompt("Todo Note");
     let message = 'Todo Added!';
-    let lastTodoItem = todoList[todoList.length - 1];
+    let storeTodoId = 1;
+    
+    if (todoList.length > 0) {
+        let lastTodoItem = todoList[todoList.length - 1];
+        storeTodoId = lastTodoItem.id + 1;
+    }
 
     todoList.push({
-        id: lastTodoItem.id + 1,
+        id: storeTodoId,
         title: todoTitle,
         note: todoNote
     });
