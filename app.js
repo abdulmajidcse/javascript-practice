@@ -1,11 +1,17 @@
-let myPromise = new Promise(function(resolve, reject) {
-    // resolve("I am from Resolve");
-    reject("I am from Reject");
-});
+async function test() {
+    // throw new Error("I am an error");
+    let myPromise = new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve("I am from Resolved");
+            // reject("I am from Rejected");
+        }, 3000);
+    });
 
-myPromise.then(function(value) {
-        console.log(value);
-})
-.catch(function(error) {
+    return await myPromise;
+}
+
+test().then(function(response) {
+    console.log(response);
+}).catch(function(error) {
     console.log(error);
-})
+});
