@@ -1,24 +1,11 @@
-class People {
-    constructor(name) {
-        this._name = name;
-    }
-}
+let myPromise = new Promise(function(resolve, reject) {
+    // resolve("I am from Resolve");
+    reject("I am from Reject");
+});
 
-class Student extends People {
-    constructor(name, address) {
-        super(name);
-        this._address = address;
-    }
-
-    get name() {
-        return this._name;
-    }
-
-    get address() {
-        return this._address;
-    }
-}
-
-let student = new Student('Ahsan Habib', 'Rangpur');
-
-console.log(student.address);
+myPromise.then(function(value) {
+        console.log(value);
+})
+.catch(function(error) {
+    console.log(error);
+})
